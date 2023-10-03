@@ -1,0 +1,92 @@
+//Constaint Data
+
+INSERT INTO `categories_services_mains` (`idCategoryMain`, `nameCategoryMain`, `idSubCategory`) VALUES
+(1, 'رحلات ', NULL),
+(2, 'معاملات', NULL),
+(3, 'برامج', NULL),
+(4, 'اخري', NULL),
+(5, 'داخلي', 1),
+(6, 'خارجي', 1),
+(7, 'بر', 6),
+(8, 'بحر', 6),
+(9, 'جو', 6),
+(10, 'بر', 5),
+(11, 'بحر', 5),
+(12, 'جو', 5);
+INSERT INTO `countries` (`id`, `countryName`, `isLocal`, `created_at`, `updated_at`) VALUES
+(1, 'اليمن ', 1, NULL, NULL),
+(2, 'السعودية', 0, NULL, NULL),
+(3, 'عمان', 0, NULL, NULL),
+(4, 'قطر', 0, NULL, NULL),
+(5, 'البحرين', 0, NULL, NULL),
+(6, 'مصر', 0, NULL, NULL),
+(7, 'جيبوتي', 0, NULL, NULL);
+INSERT INTO `cities` (`idCity`, `idCountry`, `cityName`, `created_at`, `updated_at`) VALUES
+(1, 1, 'اب', NULL, NULL),
+(2, 1, 'صنعاء', NULL, NULL),
+(3, 2, 'الرياض', NULL, NULL),
+(4, 2, 'مكة', NULL, NULL);
+
+INSERT INTO `companies` (`idCompanes`, `idCategoryMain`, `companiyName`, `numberPhone`, `addressCompaniy`, `timeUpdate`, `timeAdd`) VALUES
+(1, 1, 'البركة', 0, 'شارع العدين', NULL, NULL),
+(2, 1, 'البراق', 45613213, 'شارع العدين', NULL, NULL),
+(3, 1, 'ربا الخجاز', 23, 'تعز', NULL, NULL);
+
+
+
+INSERT INTO `genders` (`idGender`, `nameAr`, `nameEn`) VALUES
+(NULL, 'ذكر', 'male'),
+(NULL, 'انثي', 'female');
+
+INSERT INTO `martial_statuses` (`idMartial`, `nameAr`, `nameEn`) VALUES
+(NULL, 'عازب/ه', NULL),
+(NULL, 'مزوج/ه', 'مطلق/ه'),
+(NULL, 'ارمل/ه', '');
+
+INSERT INTO `type_of_filds` (`idTypeFild`, `nameType`, `value`) VALUES
+ (NULL, 'نص', 'Text'),
+ (NULL, 'صورة', 'Image'),
+  (NULL, 'رقم ', 'Number'),
+   (NULL, 'تاريخ', 'Date'),
+    (NULL, 'ملف', 'File'),
+    (NULL, 'خيارات متعددة', 'MultiText'),
+    (NULL, 'خيارات', 'CheckBox'),
+    (NULL, 'قائمة منسدلة', 'DropDown'),
+    (NULL, 'اختيار فردي', 'RadioButton');
+
+    INSERT INTO `relative_relations` (`id`, `name`, `idGender`, `timeUpdate`, `timeAdd`) VALUES
+    (NULL, 'اب', '1', NULL, NULL),
+     (NULL, 'ابن', '1', NULL, NULL),
+      (NULL, 'ابنة', '2', NULL, NULL),
+      (NULL, 'عم', '1', NULL, NULL), (NULL, 'عمة', '2', NULL, NULL),
+      (NULL, 'زوج', '1', NULL, NULL);
+INSERT INTO `identity_types` (`id`, `name`, `timeUpdate`, `timeAdd`) VALUES (NULL, 'جواز سفر', NULL, NULL), (NULL, 'بطاقة شخصية', NULL, NULL), (NULL, 'استبيان', NULL, NULL);
+INSERT INTO `services_and_identifies` (`idServ`, `idIdentity`, `timeUpdate`, `timeAdd`) VALUES ('1', '1', NULL, NULL), ('2', '1', NULL, NULL), ('2', '2', NULL, NULL), ('2', '3', NULL, NULL);
+// Varibale Data
+
+INSERT INTO `services` (`idServ`, `serviceName`, `evaluate`, `idCategoryMain`, `isActive`, `timeUpdate`, `timeAdd`) VALUES
+(1, 'رحلات خارجية بر', 1, 7, 1, NULL, NULL),
+(2, 'رحلات داخلية بر', 1, 10, 1, NULL, NULL),
+(3, 'رحلات خارجية بحر', 1, 8, 1, NULL, NULL),
+(4, 'رحلات خارجية جز', 1, 9, 0, NULL, NULL);
+
+INSERT INTO `trips` (`idTrips`, `idCompany`, `idCompanTrip`, `idServ`, `fromCity`, `toCity`, `level`, `price`, `availableSeats`, `startingDate`, `ltinerary`, `isActive`) VALUES
+(1, 1, 216546, 1, 1, 3, 'عادي', 500.00, 10, '2023-04-20', 'اب بسنتب', 1),
+(2, 2, 5646, 2, 1, 2, 'عادي', 2000.00, 10, '2023-04-04', 'نسميتبمنيس', 1),
+(3, 3, 4646, 4, 1, 4, 'عادي', 1200.00, 25, '2023-04-22', 'نتتشسمتي', 1),
+(4, 3, 12313, 3, 1, 3, 'عادي', 4500.00, 20, '2023-04-27', 'متسمنتي', 1);
+
+
+
+INSERT INTO `main_requiremnts` (`idMainRequire`, `idServ`, `idTypeFile`, `nameRequirment`, `idMainRequireSub`, `isActive`, `timeUpdate`, `timeAdd`) VALUES
+(null, 1, 2, 'صورة الجواز', NULL, 1, NULL, NULL);
+
+
+
+INSERT INTO `sub_requiremnts` (`idSubRequire`, `idServ`, `idGender`, `isfamely`, `idMartial`, `moreThanAge`, `LessThanAge`, `timeUpdate`, `timeAdd`) VALUES
+(null, 1, 1, 0, 1, 12, 200, NULL, NULL),
+(null, 1, 2, 0, 2, 15, 80, NULL, NULL);
+
+INSERT INTO `sub_requiremnts_details` (`idSubReqDetail`, `idSubRequire`, `idTypeFild`, `textRerequiremnts`, `timeUpdate`, `timeAdd`) VALUES
+(null, 2, 5, 'اذن سفر من  الزوج', NULL, NULL),
+(null, 2, 2, 'صورة لك يا مليح\r\n', NULL, NULL);

@@ -1,0 +1,77 @@
+composer create-project laravel/laravel projectTravel --ignore-platform-reqs
+composer create-project laravel/laravel umi --ignore-platform-reqs
+
+/*
+to solve error key leanthh statrt migrate
+
+in
+/app/Providers/AppServiceProvider.php to contain:
+
+
+
+use Illuminate\Support\Facades\Schema;
+
+/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    //add here
+    Schema::defaultStringLength(191);
+}
+
+
+*/
+
+
+//intial model data
+
+php artisan make:model Countries --controller --resource    --migration
+
+php artisan make:model PlanTrips --controller --resource    --migration
+php artisan make:model TripAndBookings --controller --resource    --migration
+
+php artisan make:model Cities --controller --resource    --migration
+php artisan make:model Services --controller --resource    --migration
+php artisan make:model Companies --controller --resource    --migration
+php artisan make:model ServicesCompanies --controller --resource    --migration
+php artisan make:model Employees --controller --resource    --migration
+php artisan make:model EmployeeNames --controller --resource    --migration
+php artisan make:model Customers --controller --resource    --migration
+php artisan make:model IdentityCustomers --controller --resource    --migration
+php artisan make:model CustomerName --controller --resource    --migration
+php artisan make:model PlacePirthCustomers --controller --resource    --migration
+php artisan make:model ResidencePlaceCustomers --controller --resource    --migration
+php artisan make:model SchedulerTrip --controller --resource    --migration
+php artisan make:model StateRequest --controller --resource    --migration
+php artisan make:model StateRequerment --controller --resource    --migration
+
+
+ php artisan make:model MainRequiremnts --controller --resource    --migration
+ php artisan make:model SubRequiremnts --controller --resource    --migration
+php artisan make:model SubRequiremntsDetails --controller --resource    --migration
+php artisan make:model CompaniesServices --controller --resource    --migration
+php artisan make:model CustomerRequests --controller --resource    --migration
+php artisan make:model Trips --controller --resource    --migration
+ php artisan make:model TripsBookings --controller --resource    --migration
+ //foucas to table down
+ php artisan make:model TripsBookingCustomer --controller --resource    --migration
+php artisan make:model CategoriesServices --controller  --resource    --migration
+
+php artisan make:model CategoriesServicesDetails --controller --resource    --migration
+php artisan make:model CategoriesServicesMain --controller --resource    --migration
+ php artisan make:model CategorServicesDetailRelation --controller --resource    --migration
+ php artisan make:resource collections/ServicesCollection
+
+ php artisan make:model TypeOfFild --controller --resource    --migration
+
+  php artisan make:model TypeOfFildDetial --controller --resource    --migration
+php artisan make:model subRequrmentDetailAndTypFild --controller --resource    --migration
+ php artisan make:model MainRequemntAndTypFild --controller --resource    --migration
+ php artisan make:model TypeOfFildDetialMainReq --controller --resource    --migration
+
+
+//----------------
+ php .\artisan make:resource collections/TypeOfFiledCollection
